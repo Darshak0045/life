@@ -1,54 +1,90 @@
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Login & Signup Form</title>
-    <link rel="stylesheet" href="style1.css" />
-  </head>
-  <style>
-    body { overflow: hidden; }
-  </style>
-  <body>
-    <section class="wrapper">
-      <div class="form signup">
-        <header>Signup</header>
-        <form action="#">
-          <input type="text" placeholder="Full name" required />
-          <input type="text" placeholder="Email address" required />
-          <input type="password" placeholder="Password" required />
-          <div class="checkbox">
-            <input type="checkbox" id="signupCheck" />
-            <label for="signupCheck">I accept all terms & conditions</label>
-          </div>
-          <input type="submit" value="Signup" />
-        </form>
-      </div>
 
-      <div class="form login">
-        <header>Login</header>
-        <form action="#">
-          <input type="text" placeholder="Email address" required />
-          <input type="password" placeholder="Password" required />
-          <a href="#">Forgot password?</a>
-          <input type="submit" value="Login" />
-        </form>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup Form</title>
+  <link rel="stylesheet" href="style1.css" />
 
-      <script>
-        const wrapper = document.querySelector(".wrapper"),
-          signupHeader = document.querySelector(".signup header"),
-          loginHeader = document.querySelector(".login header");
+  <script src="jQuery.js"></script>
+  <script>
+    $(document).ready(function () {
 
-        loginHeader.addEventListener("click", () => {
-          wrapper.classList.add("active");
-        });
-        signupHeader.addEventListener("click", () => {
-          wrapper.classList.remove("active");
-        });
-      </script>
-    </section>
-  </body>
+      $("#signup").submit(function () {
+        var name = $("#signup-name").val();
+        var email = $("#signup-email").val();
+        var pass = $("#signup-password").val();
+        if (name == "" || email == "" || pass == "") {
+          alert("Fill all the fields.");
+        }
+        else {
+          alert("done");
+        }
+      })
+
+      $("#login").submit(function () {
+        var email = $("#login-email").val();
+        var pass = $("#login-password").val();
+        if (email == "" || pass == "") {
+          alert("Fill all the fields.");
+        }
+        else {
+          alert("done");
+        }
+      })
+
+    })
+  </script>
+
+</head>
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
+
+<body>
+  <section class="wrapper">
+    <div class="form signup">
+      <header>Signup</header>
+      <form action="#" id="signup">
+        <input type="text" placeholder="Full name" id="signup-name" />
+        <input type="email" placeholder="Email address" id="signup-email" />
+        <input type="password" placeholder="Password" id="signup-password" />
+        <div class="checkbox">
+          <input type="checkbox" id="signupCheck" />
+          <label for="signupCheck">I accept all terms & conditions</label>
+        </div>
+        <input type="submit" value="Signup" />
+      </form>
+    </div>
+
+    <div class="form login">
+      <header>Login</header>
+      <form action="#" id="login">
+        <input type="email" placeholder="Email address" id="login-email" />
+        <input type="password" placeholder="Password" id="login-password" />
+        <a href="#">Forgot password?</a>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+
+    <script>
+      const wrapper = document.querySelector(".wrapper"),
+        signupHeader = document.querySelector(".signup header"),
+        loginHeader = document.querySelector(".login header");
+
+      loginHeader.addEventListener("click", () => {
+        wrapper.classList.add("active");
+      });
+      signupHeader.addEventListener("click", () => {
+        wrapper.classList.remove("active");
+      });
+    </script>
+  </section>
+</body>
+
 </html>
